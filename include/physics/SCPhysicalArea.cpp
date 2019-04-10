@@ -20,7 +20,9 @@ SCPhysicalArea SCPhysicalArea::loop()
     sf::Time simFrameTime = newTime - m_tCurrent;
 
     if (simFrameTime > m_maxSimFrameTime)
+    {
         simFrameTime = m_maxSimFrameTime;
+    }
     m_tCurrent = newTime;
 
     m_tAcc += simFrameTime;
@@ -35,7 +37,7 @@ SCPhysicalArea SCPhysicalArea::loop()
 
     const float alpha = m_tAcc / m_dt;
 
-    SCPhysicalArea pWorld = *this * alpha + previousPWorld * ( 1.0f - alpha );
+    SCPhysicalArea pWorld = ( *this ) * alpha + previousPWorld * ( 1.0f - alpha );
     //SCPhysicalArea pWorld = (m_currentPhWorld - m_previousPhWorld) * alpha + m_previousPhWorld;
 
     return pWorld;
