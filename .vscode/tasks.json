@@ -15,10 +15,26 @@
                 "include/graphics/SCScreen.cpp",
                 "include/utilities/SCUtilities.cpp",
                 "-o", "Legendary_Barnacle.exe"
-            ],
+            ]
+        },
+        {
+            "label": "Make Legendary_Barnacle",
+            "type": "shell",
+            "command": "mingw32-make",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
+            }
+        },
+        {
+            "label": "Update make files Legendary_Barnacle",
+            "type": "shell",
+            "command": "cmake .. -G \"MinGW Makefiles\"",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
             }
         }
     ]
