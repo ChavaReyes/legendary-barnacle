@@ -14,18 +14,18 @@ SCPhysicalArea::SCPhysicalArea()
     m_tAcc = sf::Time::Zero;
 }
 
-SCPhysicalArea SCPhysicalArea::loop()
+SCPhysicalArea& SCPhysicalArea::loop()
 {
     sf::Time newTime = m_clock.getElapsedTime();
-    sf::Time simFrameTime = newTime - m_tCurrent;
+    sf::Time simulationFrameTime = newTime - m_tCurrent;
 
-    if (simFrameTime > m_maxSimFrameTime)
+    if (simulationFrameTime > m_maxSimFrameTime)
     {
-        simFrameTime = m_maxSimFrameTime;
+        simulationFrameTime = m_maxSimFrameTime;
     }
     m_tCurrent = newTime;
 
-    m_tAcc += simFrameTime;
+    m_tAcc += simulationFrameTime;
 
     SCPhysicalArea previousPWorld;
     while ( m_tAcc >= m_dt )
@@ -37,10 +37,10 @@ SCPhysicalArea SCPhysicalArea::loop()
 
     const float alpha = m_tAcc / m_dt;
 
-    SCPhysicalArea pWorld = ( *this ) * alpha + previousPWorld * ( 1.0f - alpha );
-    //SCPhysicalArea pWorld = (m_currentPhWorld - m_previousPhWorld) * alpha + m_previousPhWorld;
+    //( *this ) * alpha + previousPWorld * ( 1.0f - alpha );
+    //(m_currentPhWorld - m_previousPhWorld) * alpha + m_previousPhWorld;
 
-    return pWorld;
+    return *this = ( *this ) * alpha + previousPWorld * ( 1.0f - alpha );
 }
 
 void SCPhysicalArea::integrate()

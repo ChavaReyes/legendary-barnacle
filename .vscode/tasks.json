@@ -45,14 +45,28 @@
         {
             "label": "Make Legendary-Barnacle",
             "type": "shell",
-            "command": "mingw32-make Legendary-Barnacle",
+            "command": "mingw32-make Legendary_Barnacle",
             "options": {
                 "cwd": "${workspaceFolder}/build"
             },
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Make Tests",
+            "type": "shell",
+            "command": "mingw32-make Tests",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
         }
     ]
 }

@@ -31,7 +31,7 @@ class SCPhysicalArea
 
     public:
         SCPhysicalArea();
-        SCPhysicalArea loop();
+        SCPhysicalArea& loop();
         void integrate();
         SCPhysicState getState() { return m_pstate; }
         void eventHandler(sf::Event & e);

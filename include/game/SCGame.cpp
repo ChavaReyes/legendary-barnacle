@@ -18,7 +18,7 @@ void SCGame::run()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            m_PhWorld.eventHandler(event);
+            eventHandler(event);
 
             if (event.type == sf::Event::Closed)
                 window.close();
@@ -26,9 +26,13 @@ void SCGame::run()
 
         window.clear(sf::Color::White);
 
-        SCPhysicalArea tmpPWorld = m_PhWorld.loop();
-        renderer.render(tmpPWorld);
+        renderer.render(m_PhWorld.loop());
 
         window.display();
     }
+}
+
+void SCGame::eventHandler(sf::Event & e)
+{
+    m_PhWorld.eventHandler(e);
 }

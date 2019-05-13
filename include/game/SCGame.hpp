@@ -11,6 +11,7 @@ class SCGame
     public:
         SCGame();
         void run();
+        void eventHandler(sf::Event & e);
 };
 
 #endif
