@@ -5,36 +5,75 @@ the Arrow Keys, there is a Floor and Obstacles for the Circle.
 
 What I need? (Sub Objetives):
 
-1- Something that controls all the things related to the Window, the loop and the events.
-2- Something that manages the physical states and calculations. // A Physical Calculator
-3- Something that manages the physical objects. // A Physical Environment
-4- Something that manages the drawing objects. // A Screen
-5- Something that manages the controls (Keyboard as an example). // An Input Controller
+- Something that controls all the things related to the Window, the loop and the events.
+- Something that manages the physical states and calculations. // A Physical Calculator
+- Something that manages the physical objects. // A Physical Environment
+- Something that manages the drawing objects. // A Screen
+- Something that manages the controls (Keyboard as an example). // An Input Controller
 
-*** 1 - Something that controls all the things related to the Window, the loop and the events ***
+*** Something that controls all the things related to the Window, the loop and the events ***
 
 Master Control Class
 	Has a Window Object
 	Has a Screen
 	Has a Physical Environment
+	Do Run the Game
+	Do Handle the Events
 
-*** 1 - End ***
+*** Something that controls all the things related to the Window, the loop and the events End ***
 
-*** 2 - Something that manages the physical states and calculations ***
+*** Something that manages the physical states and calculations ***
+
+This class works with Physical Objects
 
 Physical Calculator Class
-	
+	Do Calculate Next Physical State
+	Do Calculate Physical Objects Collision
 
-*** 2 - End ***
+*** Something that manages the physical states and calculations End ***
 
-*** 3 - Something that manages the physical objects ***
+*** Something that manages the physical objects ***
 
-*** 3 - End ***
+Physical State
+	Has Position
+	Has Speed
+	Has Acceleration
+	Has Mass
+	Has multiple Force Vectors
 
-*** 4 - Something that manages the drawing objects ***
+Physical Object class
+	Has a Physical State
 
-*** 4 - End ***
+Physical Object Factory Class
+	Do Make a Solid Circle
+	Do Make a Solid Rectangle
+	Do Make a Fixed Rectangle
 
-*** 5 - Something that manages the controls ***
+Physical Environment class
+	Has multiple Physical Objects
+	Do Calculate Next Environment State
 
-*** 5 - End ***
+*** Something that manages the physical objects End ***
+
+*** Something that manages the drawing objects ***
+
+Screen Class
+	Has a Drawable Rectangle
+	Has multiple Drawable Objects
+	Has an Input Controller
+	Do Handle the Events
+	Do Draw All
+
+*** Something that manages the drawing objects End ***
+
+*** Something that manages the controls ***
+
+Input Controller Class
+	Do Handle the Events
+	Do Handle Arrow Keys Event
+	Do Handle Mouse Events
+	Do Handle Numbers Event
+	Do Handle Alphabetical Keys Event
+	Do Handle Others Events
+
+*** Something that manages the controls End ***
