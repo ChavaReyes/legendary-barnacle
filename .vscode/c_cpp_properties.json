@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "C:/MinGW/lib/gcc/mingw32/8.2.0/include/c++/**",
-                "C:/SFML-2.5.1/include"
+                "C:/SFML-2.5.1/include",
+                "C:/Catch2"
             ],
             "defines": [
                 "_DEBUG",

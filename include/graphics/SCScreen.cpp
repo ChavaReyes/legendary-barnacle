@@ -5,7 +5,7 @@
 
 SCScreen::SCScreen()
 {
-    font.loadFromFile("resources/fonts/arial.ttf");
+    font.loadFromFile("../resources/fonts/arial.ttf");
     m_text.setFont(font);
     m_text.setPosition({ 0.0f, 100.0f });
     m_text.setCharacterSize(24);
