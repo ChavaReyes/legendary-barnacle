@@ -39,7 +39,8 @@ Physical State
 	Has Speed
 	Has Acceleration
 	Has Mass
-	Has multiple Force Vectors
+	Has multiple Linear Force Vectors
+	Has Multiple Rotational Force Vector
 
 Physical Object class
 	Has a Physical State
