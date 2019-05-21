@@ -10,6 +10,18 @@ SCScreen::SCScreen()
     m_text.setPosition({ 0.0f, 100.0f });
     m_text.setCharacterSize(24);
     m_text.setFillColor(sf::Color::Black);
+
+    sf::RectangleShape * rectangle = new sf::RectangleShape({ 100, 100 });
+    rectangle->setFillColor(sf::Color::Black);
+    m_poThing = new SCPhysicalObject(rectangle);
+}
+
+SCScreen::~SCScreen()
+{
+    if (m_poThing)
+    {
+        delete m_poThing;
+    }
 }
 
 void SCScreen::clear()
@@ -35,4 +47,9 @@ void SCScreen::render(sf::RenderWindow * renderWindow, SCPhysicalArea & pWorld)
     m_text.setPosition(pos);
 
     renderWindow->draw(m_text);
+
+    if (m_poThing)
+    {
+        m_poThing->render(renderWindow);
+    }
 }

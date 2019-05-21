@@ -19,6 +19,7 @@ set(SOURCES
     include/graphics/SCRenderer.cpp
     include/graphics/SCScreen.cpp
     include/physics/SCPhysicalArea.cpp
+    include/physics/SCPhysicalObject.cpp
     include/utilities/SCUtilities.cpp
     ${SFML_INCLUDE}/System.hpp
     ${SFML_INCLUDE}/Window.hpp
