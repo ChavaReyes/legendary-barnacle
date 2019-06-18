@@ -5,13 +5,13 @@ project (legendary-barnacle)
 # mingw32-make
 
 include_directories(include)
-include_directories(C:/SFML-2.5.1/include)
-include_directories(C:/Catch2)
+include_directories(libs/SFML-2.5.1/include)
+include_directories(libs/Catch2)
 
-link_directories(C:/SFML-2.5.1/lib)
+link_directories(libs/SFML-2.5.1/lib)
 
 #file(GLOB SOURCES "include/game/*.cpp")
-set(SFML_INCLUDE C:/SFML-2.5.1/include/SFML)
+set(SFML_INCLUDE libs/SFML-2.5.1/include/SFML)
 
 set(SOURCES 
     main.cpp 
@@ -38,7 +38,7 @@ set(TESTS_SOURCES
 set(PROJECT_LINK_LIBS libsfml-system-d.a libsfml-window-d.a libsfml-graphics-d.a)
 
 add_executable(Legendary_Barnacle ${SOURCES})
-add_executable(Tests ${TESTS_SOURCES} C:/Catch2/catch.hpp)
+add_executable(Tests ${TESTS_SOURCES} libs/Catch2/catch.hpp)
 
 target_link_libraries(Legendary_Barnacle ${PROJECT_LINK_LIBS})
 target_link_libraries(Tests ${PROJECT_LINK_LIBS})
