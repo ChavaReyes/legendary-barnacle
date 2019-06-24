@@ -4,14 +4,22 @@ project (legendary-barnacle)
 # cmake .. -G "MinGW Makefiles"
 # mingw32-make
 
+#set(CMAKE_MODULE_PATH libs/SFML-2.5.1/lib/cmake) # Tell CMake where to find the module
+set(SFML_DIR libs/SFML-2.5.1/lib/cmake/SFML)
+#set(SFML_INCLUDE libs/SFML-2.5.1/include/SFML)
+#set(CMAKE_PREFIX_PATH libs/SFML-2.5.1/lib/cmake)
+#find_package(SFML REQUIRED COMPONENTS graphics window system) # Look for SFML
+set(SFML_STATIC_LIBRARIES TRUE)
+find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+
 include_directories(include)
 include_directories(libs/SFML-2.5.1/include)
+#include_directories(${SFML_INCLUDE_DIR}) # You forgot this line above; add SFML's include dir
 include_directories(libs/Catch2)
 
-link_directories(libs/SFML-2.5.1/lib)
+#link_directories(libs/SFML-2.5.1/lib)
 
 #file(GLOB SOURCES "include/game/*.cpp")
-set(SFML_INCLUDE libs/SFML-2.5.1/include/SFML)
 
 set(SOURCES 
     main.cpp 
@@ -21,24 +29,24 @@ set(SOURCES
     include/physics/SCPhysicalArea.cpp
     include/physics/SCPhysicalObject.cpp
     include/utilities/SCUtilities.cpp
-    ${SFML_INCLUDE}/System.hpp
-    ${SFML_INCLUDE}/Window.hpp
-    ${SFML_INCLUDE}/Graphics.hpp
+    #${SFML_INCLUDE}/System.hpp
+    #${SFML_INCLUDE}/Window.hpp
+    #${SFML_INCLUDE}/Graphics.hpp
 )
 
 set(TESTS_SOURCES
     tests/tests.cpp
     include/physics/SCPhysicalArea.cpp
-    ${SFML_INCLUDE}/Window.hpp
+    #${SFML_INCLUDE}/Window.hpp
 )
-
-# set(SFML_STATIC_LIBRARIES TRUE)
-#find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
-
-set(PROJECT_LINK_LIBS libsfml-system-d.a libsfml-window-d.a libsfml-graphics-d.a)
 
 add_executable(Legendary_Barnacle ${SOURCES})
 add_executable(Tests ${TESTS_SOURCES} libs/Catch2/catch.hpp)
 
-target_link_libraries(Legendary_Barnacle ${PROJECT_LINK_LIBS})
-target_link_libraries(Tests ${PROJECT_LINK_LIBS})
+#set(SFML_DEPENDENCIES opengl32 winmm gdi32)
+#set(PROJECT_LINK_LIBS libsfml-system-s-d.a libsfml-window-s-d.a libsfml-graphics-s-d.a)
+target_link_libraries(Legendary_Barnacle sfml-graphics)
+#target_link_libraries(Legendary_Barnacle sfml-graphics ${SFML_DEPENDENCIES})
+#target_link_libraries(Legendary_Barnacle ${SFML_LIBRARIES} ${SFML_DEPENDENCIES}) # Link SFML and dependencies
+#target_link_libraries(Legendary_Barnacle SFML::graphics SFML::window SFML::system)
+target_link_libraries(Tests sfml-window)
