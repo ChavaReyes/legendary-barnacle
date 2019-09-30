@@ -76,6 +76,8 @@ set(FIND_SFML_PATHS
     /opt/csw
     /opt)
 
+message("2 FreeType_LIB: ${FreeType_LIB}")
+
 find_path(SFML_DOC_DIR SFML.tag
           PATH_SUFFIXES SFML/doc share/SFML/doc
           PATHS ${FIND_SFML_PATHS})
@@ -95,8 +97,6 @@ foreach(component ${SFML_FIND_COMPONENTS})
 endforeach()
 list(APPEND SFML_FIND_COMPONENTS ${FIND_SFML_ADDITIONAL_COMPONENTS})
 list(REMOVE_DUPLICATES SFML_FIND_COMPONENTS)
-
-message("2 FreeType_LIB: ${FreeType_LIB}")
 
 # Choose which target definitions must be imported
 if (SFML_STATIC_LIBRARIES)
