@@ -42,7 +42,6 @@ unset(_expectedTargets)
 
 
 # Compute the installation prefix relative to this file.
-message("CMAKE_CURRENT_LIST_FILE: ${CMAKE_CURRENT_LIST_FILE}")
 get_filename_component(_IMPORT_PREFIX "${CMAKE_CURRENT_LIST_FILE}" PATH)
 get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
 get_filename_component(_IMPORT_PREFIX "${_IMPORT_PREFIX}" PATH)
@@ -100,7 +99,9 @@ set_target_properties(sfml-graphics PROPERTIES
 )
 
 # Create imported target Freetype
+message("FreeType_LIB: ${FreeType_LIB}")
 add_library(Freetype INTERFACE IMPORTED)
+message("FreeType_LIB: ${FreeType_LIB}")
 
 # Create imported target OpenAL
 add_library(OpenAL INTERFACE IMPORTED)
