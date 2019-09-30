@@ -99,9 +99,7 @@ set_target_properties(sfml-graphics PROPERTIES
 )
 
 # Create imported target Freetype
-message("FreeType_LIB: ${FreeType_LIB}")
 add_library(Freetype INTERFACE IMPORTED)
-message("FreeType_LIB: ${FreeType_LIB}")
 
 # Create imported target OpenAL
 add_library(OpenAL INTERFACE IMPORTED)

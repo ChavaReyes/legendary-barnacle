@@ -76,8 +76,6 @@ set(FIND_SFML_PATHS
     /opt/csw
     /opt)
 
-message("2 FreeType_LIB: ${FreeType_LIB}")
-
 find_path(SFML_DOC_DIR SFML.tag
           PATH_SUFFIXES SFML/doc share/SFML/doc
           PATHS ${FIND_SFML_PATHS})
@@ -109,7 +107,6 @@ and either change SFML_STATIC_LIBRARIES or CMAKE_FIND_FRAMEWORK before calling f
 else()
     set(config_name "Shared")
 endif()
-message("1 FreeType_LIB: ${FreeType_LIB}")
 set(targets_config_file "${CMAKE_CURRENT_LIST_DIR}/SFML${config_name}Targets.cmake")
 
 # Generate imported targets for SFML and its dependencies

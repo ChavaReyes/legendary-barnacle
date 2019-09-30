@@ -25,7 +25,6 @@ if(SFML_STATIC_LIBRARIES)
 
     # macro that searches for a 3rd-party library
     function(sfml_bind_dependency)
-        message("Searching: ${ARGN}")
         cmake_parse_arguments(THIS "" "TARGET;FRIENDLY_NAME" "SEARCH_NAMES" ${ARGN})
         if (THIS_UNPARSED_ARGUMENTS)
             message(FATAL_ERROR "Unknown arguments when calling sfml_bind_dependency: ${THIS_UNPARSED_ARGUMENTS}")
@@ -36,11 +35,11 @@ if(SFML_STATIC_LIBRARIES)
         message("THIS_SEARCH_NAMES: ${THIS_SEARCH_NAMES}")
         message("FIND_SFML_PATHS: ${FIND_SFML_PATHS}")
         message("CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
+        message("CMAKE_LIBRARY_PATH: ${CMAKE_LIBRARY_PATH}")
         # No lookup in environment variables (PATH on Windows), as they may contain wrong library versions
         find_library(${THIS_FRIENDLY_NAME}_LIB NAMES ${THIS_SEARCH_NAMES}
                      PATHS ${FIND_SFML_PATHS} PATH_SUFFIXES lib NO_SYSTEM_ENVIRONMENT_PATH)
         mark_as_advanced(${THIS_FRIENDLY_NAME}_LIB)
-        message("${THIS_FRIENDLY_NAME}_LIB: ${${THIS_FRIENDLY_NAME}_LIB}")
         if(${THIS_FRIENDLY_NAME}_LIB)
             set_property(TARGET ${THIS_TARGET} APPEND PROPERTY INTERFACE_LINK_LIBRARIES "${${THIS_FRIENDLY_NAME}_LIB}")
         else()
