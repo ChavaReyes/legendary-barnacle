@@ -25,6 +25,7 @@ if(SFML_STATIC_LIBRARIES)
 
     # macro that searches for a 3rd-party library
     function(sfml_bind_dependency)
+        message("Searching: ${ARGN}")
         cmake_parse_arguments(THIS "" "TARGET;FRIENDLY_NAME" "SEARCH_NAMES" ${ARGN})
         if (THIS_UNPARSED_ARGUMENTS)
             message(FATAL_ERROR "Unknown arguments when calling sfml_bind_dependency: ${THIS_UNPARSED_ARGUMENTS}")
@@ -62,9 +63,8 @@ if(SFML_STATIC_LIBRARIES)
 
     # sfml-graphics
     list(FIND SFML_FIND_COMPONENTS "graphics" FIND_SFML_GRAPHICS_COMPONENT_INDEX)
-    message("Component Index: " FIND_SFML_GRAPHICS_COMPONENT_INDEX)
     if(FIND_SFML_GRAPHICS_COMPONENT_INDEX GREATER -1)
-        message("Hao 2")
+    message("Component Index: ${FIND_SFML_GRAPHICS_COMPONENT_INDEX}")
         sfml_bind_dependency(TARGET Freetype FRIENDLY_NAME "FreeType" SEARCH_NAMES "freetype")
     endif()
 
