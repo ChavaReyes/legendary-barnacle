@@ -96,6 +96,8 @@ endforeach()
 list(APPEND SFML_FIND_COMPONENTS ${FIND_SFML_ADDITIONAL_COMPONENTS})
 list(REMOVE_DUPLICATES SFML_FIND_COMPONENTS)
 
+message("2 FreeType_LIB: ${FreeType_LIB}")
+
 # Choose which target definitions must be imported
 if (SFML_STATIC_LIBRARIES)
 	set(SFML_IS_FRAMEWORK_INSTALL "")
