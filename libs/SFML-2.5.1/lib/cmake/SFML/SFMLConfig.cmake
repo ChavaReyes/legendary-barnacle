@@ -107,6 +107,7 @@ and either change SFML_STATIC_LIBRARIES or CMAKE_FIND_FRAMEWORK before calling f
 else()
     set(config_name "Shared")
 endif()
+message("1 FreeType_LIB: ${FreeType_LIB}")
 set(targets_config_file "${CMAKE_CURRENT_LIST_DIR}/SFML${config_name}Targets.cmake")
 
 # Generate imported targets for SFML and its dependencies
