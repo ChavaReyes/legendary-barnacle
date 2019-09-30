@@ -62,7 +62,9 @@ if(SFML_STATIC_LIBRARIES)
 
     # sfml-graphics
     list(FIND SFML_FIND_COMPONENTS "graphics" FIND_SFML_GRAPHICS_COMPONENT_INDEX)
+    message("Hao 1")
     if(FIND_SFML_GRAPHICS_COMPONENT_INDEX GREATER -1)
+        message("Hao 2")
         sfml_bind_dependency(TARGET Freetype FRIENDLY_NAME "FreeType" SEARCH_NAMES "freetype")
     endif()
 
