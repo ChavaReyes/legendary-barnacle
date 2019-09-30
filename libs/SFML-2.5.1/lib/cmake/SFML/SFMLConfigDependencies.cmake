@@ -3,7 +3,6 @@ if (CMAKE_VERSION VERSION_LESS 3.5.2)
     include(CMakeParseArguments)
 endif()
 
-message("CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME} MATCHES")
 # in case of static linking, we must also define the list of all the dependencies of SFML libraries
 if(SFML_STATIC_LIBRARIES)
     # detect the OS
@@ -32,9 +31,11 @@ if(SFML_STATIC_LIBRARIES)
             message(FATAL_ERROR "Unknown arguments when calling sfml_bind_dependency: ${THIS_UNPARSED_ARGUMENTS}")
         endif()
 
+        message("${THIS_FRIENDLY_NAME}_LIB: ${${THIS_FRIENDLY_NAME}_LIB}")
+        message("NAMES: ${NAMES}")
+        message("THIS_SEARCH_NAMES: ${THIS_SEARCH_NAMES}")
         message("FIND_SFML_PATHS: ${FIND_SFML_PATHS}")
         message("CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
-        message("CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
         # No lookup in environment variables (PATH on Windows), as they may contain wrong library versions
         find_library(${THIS_FRIENDLY_NAME}_LIB NAMES ${THIS_SEARCH_NAMES}
                      PATHS ${FIND_SFML_PATHS} PATH_SUFFIXES lib NO_SYSTEM_ENVIRONMENT_PATH)
