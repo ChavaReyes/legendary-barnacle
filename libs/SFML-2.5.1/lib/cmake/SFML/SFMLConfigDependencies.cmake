@@ -64,7 +64,6 @@ if(SFML_STATIC_LIBRARIES)
     # sfml-graphics
     list(FIND SFML_FIND_COMPONENTS "graphics" FIND_SFML_GRAPHICS_COMPONENT_INDEX)
     if(FIND_SFML_GRAPHICS_COMPONENT_INDEX GREATER -1)
-    message("Component Index: ${FIND_SFML_GRAPHICS_COMPONENT_INDEX}")
         sfml_bind_dependency(TARGET Freetype FRIENDLY_NAME "FreeType" SEARCH_NAMES "freetype")
     endif()
 
@@ -80,6 +79,8 @@ if(SFML_STATIC_LIBRARIES)
         sfml_bind_dependency(TARGET Vorbis FRIENDLY_NAME "Ogg" SEARCH_NAMES "ogg")
         sfml_bind_dependency(TARGET FLAC FRIENDLY_NAME "FLAC" SEARCH_NAMES "FLAC")
     endif()
+
+    message("Dependencies not found: ${FIND_SFML_DEPENDENCIES_NOTFOUND}")
 
     if (FIND_SFML_DEPENDENCIES_NOTFOUND)
         set(FIND_SFML_ERROR "SFML found but some of its dependencies are missing (${FIND_SFML_DEPENDENCIES_NOTFOUND})")
