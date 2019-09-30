@@ -31,9 +31,9 @@ if(SFML_STATIC_LIBRARIES)
             message(FATAL_ERROR "Unknown arguments when calling sfml_bind_dependency: ${THIS_UNPARSED_ARGUMENTS}")
         endif()
 
-        message("PATHS: ${PATHS}")
         message("FIND_SFML_PATHS: ${FIND_SFML_PATHS}")
-        message("PATH_SUFFIXES: ${PATH_SUFFIXES}")
+        message("CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
+        message("CMAKE_CURRENT_BINARY_DIR: ${CMAKE_CURRENT_BINARY_DIR}")
         # No lookup in environment variables (PATH on Windows), as they may contain wrong library versions
         find_library(${THIS_FRIENDLY_NAME}_LIB NAMES ${THIS_SEARCH_NAMES}
                      PATHS ${FIND_SFML_PATHS} PATH_SUFFIXES lib NO_SYSTEM_ENVIRONMENT_PATH)
