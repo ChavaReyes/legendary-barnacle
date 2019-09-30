@@ -31,6 +31,9 @@ if(SFML_STATIC_LIBRARIES)
             message(FATAL_ERROR "Unknown arguments when calling sfml_bind_dependency: ${THIS_UNPARSED_ARGUMENTS}")
         endif()
 
+        message("PATHS: ${PATHS}")
+        message("FIND_SFML_PATHS: ${FIND_SFML_PATHS}")
+        message("PATH_SUFFIXES: ${PATH_SUFFIXES}")
         # No lookup in environment variables (PATH on Windows), as they may contain wrong library versions
         find_library(${THIS_FRIENDLY_NAME}_LIB NAMES ${THIS_SEARCH_NAMES}
                      PATHS ${FIND_SFML_PATHS} PATH_SUFFIXES lib NO_SYSTEM_ENVIRONMENT_PATH)
@@ -79,8 +82,6 @@ if(SFML_STATIC_LIBRARIES)
         sfml_bind_dependency(TARGET Vorbis FRIENDLY_NAME "Ogg" SEARCH_NAMES "ogg")
         sfml_bind_dependency(TARGET FLAC FRIENDLY_NAME "FLAC" SEARCH_NAMES "FLAC")
     endif()
-
-    message("Dependencies not found: ${FIND_SFML_DEPENDENCIES_NOTFOUND}")
 
     if (FIND_SFML_DEPENDENCIES_NOTFOUND)
         set(FIND_SFML_ERROR "SFML found but some of its dependencies are missing (${FIND_SFML_DEPENDENCIES_NOTFOUND})")
