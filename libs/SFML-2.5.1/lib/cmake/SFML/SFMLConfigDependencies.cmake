@@ -3,6 +3,7 @@ if (CMAKE_VERSION VERSION_LESS 3.5.2)
     include(CMakeParseArguments)
 endif()
 
+message("CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME} MATCHES")
 # in case of static linking, we must also define the list of all the dependencies of SFML libraries
 if(SFML_STATIC_LIBRARIES)
     # detect the OS
