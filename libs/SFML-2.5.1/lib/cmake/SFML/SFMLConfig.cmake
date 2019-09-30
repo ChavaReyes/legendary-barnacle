@@ -114,7 +114,9 @@ if (EXISTS "${targets_config_file}")
     # Set SFML_FOUND to TRUE by default, may be overwritten by one of the includes below
     set(SFML_FOUND TRUE)
     include("${targets_config_file}")
+    message("Pre Hao 1")
     include("${CMAKE_CURRENT_LIST_DIR}/SFMLConfigDependencies.cmake")
+    message("Pre Hao 2")
 
     if (SFML_FOUND)
         foreach (component ${SFML_FIND_COMPONENTS})
