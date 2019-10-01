@@ -30,6 +30,7 @@ if(SFML_STATIC_LIBRARIES)
             message(FATAL_ERROR "Unknown arguments when calling sfml_bind_dependency: ${THIS_UNPARSED_ARGUMENTS}")
         endif()
 
+        message("PATHS: ${PATHS}")
         message("NAMES: ${NAMES}")
         message("THIS_SEARCH_NAMES: ${THIS_SEARCH_NAMES}")
         message("FIND_SFML_PATHS: ${FIND_SFML_PATHS}")
