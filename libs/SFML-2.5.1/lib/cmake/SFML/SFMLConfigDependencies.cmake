@@ -31,7 +31,7 @@ if(SFML_STATIC_LIBRARIES)
         endif()
 
         message("Creating file on current directory")
-        file(WRITE "Testing.txt" "Hao")
+        file(WRITE "${SFML_ROOT}/Testing.txt" "Hao")
         # No lookup in environment variables (PATH on Windows), as they may contain wrong library versions
         find_library(${THIS_FRIENDLY_NAME}_LIB NAMES ${THIS_SEARCH_NAMES}
                      PATHS ${FIND_SFML_PATHS} PATH_SUFFIXES lib NO_SYSTEM_ENVIRONMENT_PATH)
