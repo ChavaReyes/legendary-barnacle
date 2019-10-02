@@ -30,6 +30,8 @@ if(SFML_STATIC_LIBRARIES)
             message(FATAL_ERROR "Unknown arguments when calling sfml_bind_dependency: ${THIS_UNPARSED_ARGUMENTS}")
         endif()
 
+        message("CMAKE_FIND_ROOT_PATH: ${CMAKE_FIND_ROOT_PATH}")
+        message("CMAKE_SYSROOT: ${CMAKE_SYSROOT}")
         message("THIS_SEARCH_NAMES: ${THIS_SEARCH_NAMES}")
         message("FIND_SFML_PATHS: ${FIND_SFML_PATHS}")
         # No lookup in environment variables (PATH on Windows), as they may contain wrong library versions
