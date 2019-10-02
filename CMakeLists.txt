@@ -6,6 +6,8 @@ project (legendary-barnacle)
 
 #set(CMAKE_MODULE_PATH libs/SFML-2.5.1/lib/cmake) # Tell CMake where to find the module
 set(SFML_DIR libs/SFML-2.5.1/lib/cmake/SFML)
+set(SFML_ROOT "${CMAKE_CURRENT_LIST_DIR}/libs/SFML-2.5.1/lib")
+message("${SFML_ROOT}")
 #set(SFML_DIR libs/SFML-2.5.1)
 #set(SFML_INCLUDE libs/SFML-2.5.1/include/SFML)
 #set(CMAKE_PREFIX_PATH libs/SFML-2.5.1/lib/cmake)
