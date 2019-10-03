@@ -6,12 +6,10 @@ project (legendary-barnacle)
 
 #set(CMAKE_MODULE_PATH libs/SFML-2.5.1/lib/cmake) # Tell CMake where to find the module
 set(SFML_DIR libs/SFML-2.5.1/lib/cmake/SFML)
-set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE BOTH)
-set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY BOTH)
-#set(SFML_DIR libs/SFML-2.5.1)
-#set(SFML_INCLUDE libs/SFML-2.5.1/include/SFML)
-#set(CMAKE_PREFIX_PATH libs/SFML-2.5.1/lib/cmake)
-#find_package(SFML REQUIRED COMPONENTS graphics window system) # Look for SFML
+
+#set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE BOTH)
+#set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY BOTH)
+
 set(SFML_STATIC_LIBRARIES TRUE)
 find_package(SFML 2 COMPONENTS graphics window system REQUIRED)
 #find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
