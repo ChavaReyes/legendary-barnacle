@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "(gdb) Launch legendary-barnacle",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/Legendary_Barnacle.exe",
