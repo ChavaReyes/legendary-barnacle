@@ -11,7 +11,6 @@ find_package(SFML 2 COMPONENTS graphics window system REQUIRED)
 
 include_directories(include)
 include_directories(libs/SFML-2.5.1/src)
-#include_directories(${SFML_INCLUDE_DIR}) # You forgot this line above; add SFML's include dir
 include_directories(libs/Catch2)
 
 set(SOURCES 

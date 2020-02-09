@@ -15,7 +15,8 @@
             ],
             "compilerPath": "C:/MinGW/bin/g++.exe",
             "cStandard": "c11",
-            "cppStandard": "c++11"
+            "cppStandard": "c++11",
+            "configurationProvider": "vector-of-bool.cmake-tools"
         }
     ],
     "version": 4
